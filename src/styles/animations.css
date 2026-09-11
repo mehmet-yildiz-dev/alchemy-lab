@@ -1,0 +1,93 @@
+/* Motion vocabulary. Components use these semantic utilities instead of bespoke timing. */
+@keyframes alchemy-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alchemy-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-md));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes alchemy-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes alchemy-demo-slide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--motion-distance-md));
+  }
+}
+
+@keyframes alchemy-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: alchemy-fade-in var(--motion-duration-normal) var(--motion-ease-enter) both;
+  }
+
+  .animate-slide-up {
+    animation: alchemy-slide-up var(--motion-duration-normal) var(--motion-ease-enter) both;
+  }
+
+  .animate-scale-in {
+    animation: alchemy-scale-in var(--motion-duration-fast) var(--motion-ease-enter) both;
+  }
+
+  .animate-demo-slide {
+    animation: alchemy-demo-slide var(--motion-duration-slow) var(--motion-ease-standard) infinite;
+  }
+
+  .animate-spin-semantic {
+    animation: alchemy-spin var(--motion-duration-slow) linear infinite;
+  }
+
+  .duration-normal {
+    transition-duration: var(--motion-duration-normal);
+  }
+}
+
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  scroll-behavior: auto !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

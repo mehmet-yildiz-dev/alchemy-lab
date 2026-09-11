@@ -1,0 +1,172 @@
+/* Foundation: raw alchemical materials and structural presets. */
+@font-face {
+  font-family: "Rubik Alchemy";
+  src: url("/fonts/rubik-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Alchemy";
+  src: url("/fonts/poppins-400-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Alchemy";
+  src: url("/fonts/poppins-500-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Alchemy";
+  src: url("/fonts/poppins-600-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Alchemy";
+  src: url("/fonts/poppins-700-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Canonical rating preference: lowest to highest. */
+    --rating-lowest: var(--ruby);
+    --rating-low: var(--topaz);
+    --rating-middle: var(--emerald);
+    --rating-high: var(--sapphire);
+    --rating-highest: var(--amethyst);
+
+    /* Default structure: data-font-set="my-website", balanced radius, restrained motion. */
+    --font-display-family: "Poppins Alchemy", "Trebuchet MS", sans-serif;
+    --font-body-family: "Rubik Alchemy", Arial, sans-serif;
+    --font-mono-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    --radius-control-value: 0.5rem;
+    --radius-surface-value: 0.75rem;
+    --radius-overlay-value: 0.75rem;
+    --motion-duration-instant: 100ms;
+    --motion-duration-fast: 160ms;
+    --motion-duration-normal: 240ms;
+    --motion-duration-slow: 360ms;
+    --motion-distance-sm: 0.25rem;
+    --motion-distance-md: 0.5rem;
+    --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --motion-ease-enter: cubic-bezier(0, 0, 0, 1);
+    --motion-ease-exit: cubic-bezier(0.3, 0, 1, 1);
+  }
+
+  [data-font-set="my-website"] {
+    --font-display-family: "Poppins Alchemy", "Trebuchet MS", sans-serif;
+    --font-body-family: "Rubik Alchemy", Arial, sans-serif;
+    --font-mono-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  }
+
+  [data-font-set="system"] {
+    --font-display-family: ui-sans-serif, system-ui, sans-serif;
+    --font-body-family: ui-sans-serif, system-ui, sans-serif;
+    --font-mono-family: ui-monospace, "Cascadia Code", monospace;
+  }
+
+  [data-font-set="editorial"] {
+    --font-display-family: Georgia, "Times New Roman", serif;
+    --font-body-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-mono-family: "Courier New", ui-monospace, monospace;
+  }
+
+  [data-font-set="technical"] {
+    --font-display-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+    --font-body-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono-family: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+  }
+
+  [data-radius="sharp"] {
+    --radius-control-value: 0.125rem;
+    --radius-surface-value: 0.25rem;
+    --radius-overlay-value: 0.25rem;
+  }
+
+  [data-radius="compact"] {
+    --radius-control-value: 0.375rem;
+    --radius-surface-value: 0.5rem;
+    --radius-overlay-value: 0.5rem;
+  }
+
+  [data-radius="balanced"] {
+    --radius-control-value: 0.5rem;
+    --radius-surface-value: 0.75rem;
+    --radius-overlay-value: 0.75rem;
+  }
+
+  [data-radius="soft"] {
+    --radius-control-value: 0.75rem;
+    --radius-surface-value: 1.25rem;
+    --radius-overlay-value: 1.25rem;
+  }
+
+  [data-motion="reduced"] {
+    --motion-duration-instant: 0.01ms;
+    --motion-duration-fast: 0.01ms;
+    --motion-duration-normal: 0.01ms;
+    --motion-duration-slow: 0.01ms;
+    --motion-distance-sm: 0;
+    --motion-distance-md: 0;
+  }
+
+  [data-motion="expressive"] {
+    --motion-duration-instant: 120ms;
+    --motion-duration-fast: 200ms;
+    --motion-duration-normal: 320ms;
+    --motion-duration-slow: 480ms;
+    --motion-distance-sm: 0.375rem;
+    --motion-distance-md: 0.75rem;
+  }
+
+  .light {
+    /* Metals */
+    --silver: oklch(0.2 0.001 256);
+    --quicksilver: oklch(0.31 0.0013 169);
+    --gold: oklch(0.54 0.065 50);
+    --titanium: oklch(0.68 0.014 240);
+    --platinum: oklch(0.49 0.0256 225);
+    /* Surface materials */
+    --diamond: oklch(0.96 0.0016 196);
+    --pearl: oklch(0.96 0.0256 81);
+    --obsidian: oklch(0.9 0.01 289);
+    /* Gem materials */
+    --sapphire: oklch(0.6 0.16 256);
+    --ruby: oklch(0.6 0.24 24);
+    --amethyst: oklch(0.6 0.18 324);
+    --emerald: oklch(0.6 0.14 144);
+    --topaz: oklch(0.6 0.121 96);
+  }
+
+  .dark {
+    /* Metals */
+    --silver: oklch(0.96 0.0016 256);
+    --quicksilver: oklch(0.96 0.049 169);
+    --gold: oklch(0.81 0.121 100);
+    --titanium: oklch(0.46 0.012 225);
+    --platinum: oklch(0.88 0.0256 225);
+    /* Surface materials */
+    --diamond: oklch(0.24 0.0016 196);
+    --pearl: oklch(0.22 0.008 255);
+    --obsidian: oklch(0.16 0.016 289);
+    /* Gem materials */
+    --sapphire: oklch(0.64 0.16 256);
+    --ruby: oklch(0.64 0.18 25);
+    --amethyst: oklch(0.64 0.18 324);
+    --emerald: oklch(0.64 0.14 144);
+    --topaz: oklch(0.64 0.121 96);
+  }
+}

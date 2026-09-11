@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@source "../**/*.{html,js,jsx,md,mdx,ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
+
+/* Semantic contract: consumer UI should use these aliases rather than raw materials. */
+@theme {
+  --color-*: initial;
+  /* Foundation material utilities */
+  --color-platinum: var(--platinum);
+  --color-titanium: var(--titanium);
+  --color-gold: var(--gold);
+  --color-silver: var(--silver);
+  --color-quicksilver: var(--quicksilver);
+  --color-diamond: var(--diamond);
+  --color-pearl: var(--pearl);
+  --color-obsidian: var(--obsidian);
+  --color-emerald: var(--emerald);
+  --color-sapphire: var(--sapphire);
+  --color-ruby: var(--ruby);
+  --color-amethyst: var(--amethyst);
+  --color-topaz: var(--topaz);
+  /* Structural */
+  --font-display: var(--font-display-family);
+  --font-body: var(--font-body-family);
+  --font-mono: var(--font-mono-family);
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 48rem;
+  --breakpoint-desktop: 80rem;
+  --breakpoint-wide: 96rem;
+  --radius-xs: max(0px, calc(var(--radius-control-value) - 0.25rem));
+  --radius-sm: max(0px, calc(var(--radius-control-value) - 0.125rem));
+  --radius-md: var(--radius-control-value);
+  --radius-lg: var(--radius-surface-value);
+  --radius-xl: var(--radius-surface-value);
+  --radius-2xl: var(--radius-overlay-value);
+  --radius-3xl: var(--radius-overlay-value);
+  --radius-control: var(--radius-control-value);
+  --radius-surface: var(--radius-surface-value);
+  --radius-overlay: var(--radius-overlay-value);
+  --ease-standard: var(--motion-ease-standard);
+  --default-transition-duration: var(--motion-duration-fast);
+  /* Surface and content */
+  --color-background: var(--app-background, var(--diamond));
+  --color-foreground: var(--app-foreground, var(--silver));
+  --color-muted: var(--app-muted, var(--obsidian));
+  --color-muted-foreground: var(--app-muted-foreground, var(--platinum));
+  --color-metadata: var(--app-metadata, var(--topaz));
+  --color-card: var(--app-card, var(--pearl));
+  --color-card-foreground: var(--app-card-foreground, var(--quicksilver));
+  --color-popover: var(--app-popover, var(--obsidian));
+  --color-popover-foreground: var(--app-popover-foreground, var(--gold));
+  /* Actions and emphasis */
+  --color-primary: var(--app-primary, var(--sapphire));
+  --color-primary-foreground: var(--app-primary-foreground, var(--diamond));
+  --color-secondary: var(--app-secondary, var(--amethyst));
+  --color-secondary-foreground: var(--app-secondary-foreground, var(--diamond));
+  --color-accent: var(--app-accent, var(--emerald));
+  --color-accent-foreground: var(--app-accent-foreground, var(--pearl));
+  --color-destructive: var(--app-destructive, var(--ruby));
+  --color-destructive-foreground: var(--app-destructive-foreground, var(--quicksilver));
+  --color-link: var(--app-link, var(--gold));
+  --color-info: var(--app-info, var(--sapphire));
+  --color-info-foreground: var(--app-info-foreground, var(--diamond));
+  --color-success: var(--app-success, var(--emerald));
+  --color-success-foreground: var(--app-success-foreground, var(--diamond));
+  --color-warning: var(--app-warning, var(--topaz));
+  --color-warning-foreground: var(--app-warning-foreground, var(--diamond));
+  /* Structure and data */
+  --color-track: var(--app-track, var(--obsidian));
+  --color-border: var(--app-border, var(--titanium));
+  --color-input: var(--app-input, var(--titanium));
+  --color-ring: var(--app-ring, var(--sapphire));
+  --color-scrollbar-track: var(--app-background, var(--diamond));
+  --color-scrollbar-thumb: var(--app-border, var(--titanium));
+  --color-scrollbar-thumb-hover: var(--app-muted-foreground, var(--platinum));
+  --color-disabled: var(--app-disabled, var(--obsidian));
+  --color-disabled-foreground: var(--app-disabled-foreground, var(--platinum));
+  --color-overlay: color-mix(in srgb, var(--app-overlay, var(--obsidian)) 75%, transparent);
+  --color-chart-1: var(--app-chart-1, var(--sapphire));
+  --color-chart-2: var(--app-chart-2, var(--ruby));
+  --color-chart-3: var(--app-chart-3, var(--emerald));
+  --color-chart-4: var(--app-chart-4, var(--amethyst));
+  --color-chart-5: var(--app-chart-5, var(--topaz));
+  /* Rating invariant: lowest to highest. */
+  --color-rating-lowest: var(--rating-lowest);
+  --color-rating-low: var(--rating-low);
+  --color-rating-middle: var(--rating-middle);
+  --color-rating-high: var(--rating-high);
+  --color-rating-highest: var(--rating-highest);
+  --color-rating-foreground: var(--diamond);
+  /* Derived effect */
+  --color-selection: color-mix(in srgb, var(--titanium), transparent 80%);
+}
