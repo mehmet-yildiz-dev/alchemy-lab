@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "insertFinalNewline": true,
+  "sortImports": {
+    "groups": [
+      "builtin",
+      "external",
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ],
+    "internalPattern": ["@/**"],
+    "newlinesBetween": true
+  },
+  "sortTailwindcss": {
+    "stylesheet": "src/styles/index.css",
+    "functions": ["clsx", "cn", "cva", "twMerge"]
+  },
+  "sortPackageJson": true,
+  "jsdoc": true,
+  "overrides": [
+    {
+      "files": ["*.jsonc", "**/*.jsonc"],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "**/.next/**",
+    "**/.sanity/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/public/**",
+    "**/*.tsbuildinfo",
+    "**/*.min.*"
+  ]
+}
