@@ -1,0 +1,72 @@
+<!doctype html>
+<html
+  lang="en"
+  class="dark"
+  data-font-set="my-website"
+  data-radius="balanced"
+  data-motion="restrained"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#17151c" />
+    <meta
+      name="description"
+      content="A living showcase and reusable React foundation for Mehmet Yıldız's metal-and-gemstone design system."
+    />
+    <meta name="application-name" content="Digital Alchemy" />
+    <meta name="author" content="Mehmet Yıldız" />
+    <meta name="creator" content="Mehmet Yıldız" />
+    <meta name="publisher" content="Mehmet Yıldız" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Digital Alchemy" />
+    <meta property="og:title" content="Digital Alchemy — Theme and UI showcase" />
+    <meta
+      property="og:description"
+      content="A living showcase and reusable React foundation for Mehmet Yıldız's metal-and-gemstone design system."
+    />
+    <meta property="og:image" content="/seo/og-image.webp" />
+    <meta property="og:image:alt" content="Digital Alchemy by Mehmet Yıldız" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Digital Alchemy — Theme and UI showcase" />
+    <meta
+      name="twitter:description"
+      content="A living showcase and reusable React foundation for Mehmet Yıldız's metal-and-gemstone design system."
+    />
+    <meta name="twitter:image" content="/seo/og-image.webp" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>Digital Alchemy — Theme and UI showcase</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Digital Alchemy",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "author": { "@type": "Person", "name": "Mehmet Yıldız" },
+        "description": "A reusable React theme and component showcase."
+      }
+    </script>
+    <script>
+      try {
+        const mode = localStorage.getItem("alchemy-mode") || "dark";
+        document.documentElement.classList.remove("dark", "light");
+        document.documentElement.classList.add(mode);
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
