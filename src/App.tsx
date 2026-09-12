@@ -10,7 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <ThemeLabProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route element={<ShowcaseShell />}>
             <Route index element={<HomePage />} />
