@@ -1,6 +1,8 @@
+export const SITE_URL = "https://mehmetyildiz.dev";
+export const SHOWCASE_URL = "https://mehmet-yildiz-dev.github.io/alchemy-lab";
 export const SITE_NAME = "Digital Alchemy";
 export const DEFAULT_DESCRIPTION =
-  "A living showcase and reusable React foundation for Mehmet Yıldız's metal-and-gemstone design system.";
+  "A personal reference and React showcase for Mehmet Yıldız's Digital Alchemy theme and frontend defaults.";
 
 export const ROUTE_SEO = {
   "/": {
@@ -45,13 +47,43 @@ function setPropertyMeta(property: string, content: string) {
   element.content = content;
 }
 
+function setLinkMeta(rel: string, href: string) {
+  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+  if (!element) {
+    element = document.createElement("link");
+    element.rel = rel;
+    document.head.append(element);
+  }
+  element.href = href;
+}
+
+function routeFromPathname(pathname: string): string {
+  const pathnameWithoutTrailingSlash = pathname.replace(/\/+$/, "") || "/";
+  const basePath = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
+  if (
+    basePath &&
+    basePath !== "/" &&
+    (pathnameWithoutTrailingSlash === basePath ||
+      pathnameWithoutTrailingSlash.startsWith(`${basePath}/`))
+  ) {
+    return pathnameWithoutTrailingSlash.slice(basePath.length) || "/";
+  }
+
+  return pathnameWithoutTrailingSlash;
+}
+
+function getShowcaseUrl() {
+  return (import.meta.env.VITE_SHOWCASE_URL || SHOWCASE_URL).replace(/\/+$/, "");
+}
+
 export function applyRouteSeo(pathname: string) {
-  const route = (pathname in ROUTE_SEO ? pathname : "/") as ShowcaseRoute;
+  const routePath = routeFromPathname(pathname);
+  const route = (routePath in ROUTE_SEO ? routePath : "/") as ShowcaseRoute;
   const metadata = ROUTE_SEO[route];
-  const configuredOrigin = import.meta.env.SITE_URL?.replace(/\/$/, "");
-  const origin = configuredOrigin || window.location.origin;
-  const canonicalUrl = new URL(route, `${origin}/`).toString();
-  const socialImage = new URL("/seo/og-image.webp", `${origin}/`).toString();
+  const showcaseUrl = getShowcaseUrl();
+  const canonicalUrl = route === "/" ? `${showcaseUrl}/` : `${showcaseUrl}${route}`;
+  const socialImage = `${showcaseUrl}/seo/og-image.webp`;
 
   document.title = metadata.title;
   setNamedMeta("description", metadata.description);
@@ -62,12 +94,6 @@ export function applyRouteSeo(pathname: string) {
   setPropertyMeta("og:url", canonicalUrl);
   setPropertyMeta("og:image", socialImage);
   setNamedMeta("twitter:image", socialImage);
-
-  let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement("link");
-    canonical.rel = "canonical";
-    document.head.append(canonical);
-  }
-  canonical.href = canonicalUrl;
+  setLinkMeta("canonical", canonicalUrl);
+  setLinkMeta("author", `${SITE_URL}/`);
 }

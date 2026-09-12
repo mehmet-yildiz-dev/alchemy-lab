@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://mehmet-yildiz-dev.github.io/alchemy-lab/sitemap.xml
