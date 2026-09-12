@@ -7,7 +7,12 @@ import { defineConfig } from "vite";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
+const configuredBase = process.env.VITE_BASE_PATH;
+const normalizedBase = configuredBase?.replace(/^\/+|\/+$/g, "");
+const base = normalizedBase ? `/${normalizedBase}/` : "/";
+
 export default defineConfig({
+  base,
   plugins: [react(), tailwindcss()],
   resolve: { alias: { "@": projectRoot } },
 });

@@ -9,6 +9,10 @@ const navigation = [
   { href: "/patterns", label: "Patterns", end: false },
 ] as const;
 
+function publicAsset(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+}
+
 function ShowcaseHeader() {
   const { mode, setMode } = useThemeLab();
 
@@ -17,12 +21,12 @@ function ShowcaseHeader() {
       <div className="flex min-h-16 flex-wrap items-center justify-between gap-3 px-4 py-3 tablet:px-7 desktop:px-10">
         <NavLink to="/" className="flex items-center gap-2.5" aria-label="Digital Alchemy home">
           <img
-            src="/logo_light.svg"
+            src={publicAsset("logo_light.svg")}
             alt="Digital Alchemy"
             className="h-8 w-auto max-w-44 dark:hidden"
           />
           <img
-            src="/logo_dark.svg"
+            src={publicAsset("logo_dark.svg")}
             alt="Digital Alchemy"
             className="hidden h-8 w-auto max-w-44 dark:block"
           />
